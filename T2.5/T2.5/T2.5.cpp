@@ -4,7 +4,7 @@
 using namespace std;
 int f(int x)
 {
-	return sizeof(int);
+	return sizeof (int);
 }
 int f(double x)
 {
