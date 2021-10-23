@@ -1,51 +1,64 @@
 #include <iostream>
 using namespace std;
-#define MAX 100
+
 class Student
 {
 private:
 	string name;
 	int grade;
-	int n;
+
 public:
-	void getName()
+	Student(string newName, int newGrade)
 	{
-		cout << "Name of the Student: ";
-		cin >>name;
+		name = newName;
+		grade = newGrade;
 	}
-	void getGrade()
+	Student()
 	{
-		cout << "Grade :"
-	    cin >> grade;
-	}
-	int higherGrade(int maxGrade)
-	{
-		int i;
-		for ( i = 1; i<= n;i++)
-		if (grade < maxGrade)
-			maxGrade = grade;
-		return name[i];
 
 	}
-	
+	void setName()
+	{
+		cout << "Name of the Student: ";
+		cin >> name;
+	}
+	void setGrade()
+	{
+		cout << "Grade :"
+			cin >> grade;
+	}
+	string getName()
+	{
+		return name;
+	}
+	int getGrade()
+	{
+		return grade;
+	}
 };
 int main()
 {
-    Student std[MAX];      
-    int n , i;
-
-	cout << "Enter total number of students: ";
-	cin >> n;
-
-	for (i = 0; i <= n; i++) {
-		cout << "Enter name of student " << i + 1 << ":\n";
-		std[i].getName();
-	}
-	cout << endl;
-	for (i = 0; i <= n; i++) {
-		cout << "Enter grade of student" << i + 1 << ":\n";
-		std[i].higherGrade(i);
+	int i, gradeMax;
+	Student student[5];
+	for (i = 1; i <= 5; i++)
+	{
+		student[i].setName();
+		student[i].setGrade();
+		cout << endl;
 	}
 
-    return 0;
+	gradeMax = student[0].getGrade();
+	int gradeMaxStudent = 0;
+
+	for (i = 1; i <= 5; i++) {
+		if (gradeMax < student[i].getGrade())
+		{
+			gradeMax = student[i].getGrade();
+			gradeMaxStudent = i;
+		}
+	}
+	cout << "Enter ID of student" << student[gradeMaxStudent].getName << ":\n";
+	cout << "Enter gradeMax of student" << student[gradeMaxStudent].getName << endl;
+
+	return 0;
 }
